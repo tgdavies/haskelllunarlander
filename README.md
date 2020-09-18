@@ -164,7 +164,7 @@ data State = FLYING {
 ```
 Which you reach when your height gets to zero:
 ```
-change _ (FLYING {throttle, yvelocity, 0.0}) = LANDED
+change _ (FLYING {throttle, yvelocity, height=0.0}) = LANDED
 ```
 
 It's important that this pattern goes before the `change (TimePassing(dt)) (FLYING {throttle, yvelocity, height}) = ...` pattern, otherwise this pattern with a more specific match for `height` will never match.
